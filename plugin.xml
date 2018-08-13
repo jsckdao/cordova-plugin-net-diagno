@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-net-diagno" version="0.1.1">
+    <name>NetDiagno</name>
+    <description>Cordova NetDiagno Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,netdiagno</keywords>
+    <js-module src="www/netdiagno.js" name="netdiagno">
+        <clobbers target="netdiagno" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="netdiagno">
+                <param name="ios-package" value="LDNetDiagnoPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/LDNetConnect.h" />
+        <source-file src="src/ios/LDNetConnect.m" />
+        <header-file src="src/ios/LDNetDiagnoService.h" />
+        <source-file src="src/ios/LDNetDiagnoService.m" />
+        <header-file src="src/ios/LDNetGetAddress.h" />
+        <source-file src="src/ios/LDNetGetAddress.m" />
+        <header-file src="src/ios/LDNetPing.h" />
+        <source-file src="src/ios/LDNetPing.m" />
+        <header-file src="src/ios/LDNetTimer.h" />
+        <source-file src="src/ios/LDNetTimer.m" />
+        <header-file src="src/ios/LDNetTraceRoute.h" />
+        <source-file src="src/ios/LDNetTraceRoute.m" />
+        <header-file src="src/ios/LDSimplePing.h" />
+        <source-file src="src/ios/LDSimplePing.m" />
+        <header-file src="src/ios/LDNetDiagnoPlugin.h" />
+        <source-file src="src/ios/LDNetDiagnoPlugin.m" />
+
+        <header-file src="src/ios/Route.h" />
+
+        <framework src="CoreMotion.framework" />
+        <framework src="libresolv.tbd" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+    </platform>
+</plugin>
