@@ -26,19 +26,26 @@
 }
 
 - (void)netDiagnosisDidEnd:(NSString *)logInfo {
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:logInfo];
-    [netDiagnoService stopNetDialogsis];
+    NSDictionary *dict = @{ @"type":@"finished",@"out": logInfo };
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCommand.callbackId];
+    [netDiagnoService stopNetDialogsis];
 }
 
 
 - (void)netDiagnosisDidStarted {
-
+    NSDictionary *dict = @{ @"type":@"start" };
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+    pluginResult.keepCallback = [NSNumber numberWithInt:1];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCommand.callbackId];
 }
 
 
 - (void)netDiagnosisStepInfo:(NSString *)stepInfo {
-    
+    NSDictionary *dict = @{ @"type":@"step",@"out": stepInfo };
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+    pluginResult.keepCallback = [NSNumber numberWithInt:1];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:currentCommand.callbackId];
 }
 
 @end
