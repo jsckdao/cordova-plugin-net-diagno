@@ -6,8 +6,12 @@
 支持([IOS](https://github.com/Lede-Inc/LDNetDiagnoService_IOS) 
 与 [android](https://github.com/Lede-Inc/LDNetDiagnoService_Android))
 
+<<<<<<< HEAD
 
 ## Usage
+=======
+## Usage
+>>>>>>> cf2cd933262c16184e42fcf36f8caa23fed21940
 
 ```js
 window.netdiagno({ 
