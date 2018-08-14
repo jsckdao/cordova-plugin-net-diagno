@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-net-diagno" version="0.1.1">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-net-diagno" version="0.1.1">
     <name>NetDiagno</name>
     <description>Cordova NetDiagno Plugin</description>
     <license>Apache 2.0</license>
@@ -39,13 +38,43 @@
         <framework src="AVFoundation.framework" />
     </platform>
 
-    <!-- <platform name="android">
+    <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Device" >
-                <param name="android-package" value="org.apache.cordova.device.Device"/>
+            <feature name="netdiagno">
+                <param name="android-package" value="com.mopgame.netdiagno.LDNetDiagnoPlugin"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/Device.java" target-dir="src/org/apache/cordova/device" />
-    </platform> -->
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        </config-file>
+
+        <source-file src="src/android/LDNetAsyncTaskEx.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetDiagnoListener.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetDiagnoService.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetDiagnoPlugin.java" target-dir="src/com/mopgame/netdiagno" />
+        <source-file src="src/android/LDNetPing.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetSocket.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetTraceRoute.java" target-dir="src/com/netease/LDNetDiagnoService" />
+        <source-file src="src/android/LDNetUtil.java" target-dir="src/com/netease/LDNetDiagnoUtils" />
+        <source-file src="src/android/LDPingParse.java" target-dir="src/com/netease/LDNetDiagnoUtils" />
+
+
+        <resource-file src="src/android/libs/libtracepath-armebi.so" target="libs/armebi/libtracepath.so" />
+        <resource-file src="src/android/libs/libtracepath-x86.so" target="libs/x86/libtracepath.so" />
+        <resource-file src="src/android/libs/libtracepath-mips.so" target="libs/mips/libtracepath.so" />
+        <!-- 
+        <resource-file src="src/android/jni/Android.mk" target="jni/Android.mk" />
+        <resource-file src="src/android/jni/Provider.h" target="jni/Provider.h" />
+        <resource-file src="src/android/jni/com_netease_LDNetDiagnoService_LDNetTraceRoute.h" target="jni/com_netease_LDNetDiagnoService_LDNetTraceRoute.h" />
+        <resource-file src="src/android/jni/Application.mk" target="jni/Application.mk" />
+        <resource-file src="src/android/jni/SNAPSHOT.h" target="jni/SNAPSHOT.h" />
+        <resource-file src="src/android/jni/miniTelnet.c" target="jni/miniTelnet.c" />
+        <resource-file src="src/android/jni/Provider.c" target="jni/Provider.c" />
+        <resource-file src="src/android/jni/com_netease_LDNetDiagnoService_LDNetSocket.h" target="jni/com_netease_LDNetDiagnoService_LDNetSocket.h" /> -->
+
+    </platform>
 </plugin>
