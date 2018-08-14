@@ -1,7 +1,9 @@
 {
     "name": "cordova-plugin-net-diagno",
-    "version": "2.0.3-dev",
+    "version": "0.1.1",
     "description": "Cordova Net Diagno Plugin",
+    "author": "jsckdao",
+    "license": "MIT",
     "cordova": {
       "id": "cordova-plugin-net-diagno",
       "platforms": [
@@ -12,7 +14,7 @@
 
     "keywords": [
       "cordova",
-      "device",
+      "diagno",
       "ecosystem:cordova",
       "cordova-android",
       "cordova-ios"
@@ -21,8 +23,11 @@
       "test": "npm run eslint",
       "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
     },
-    "author": "Apache Software Foundation",
-    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jsckdao/cordova-plugin-net-diagno.git"
+    },
+    
     "engines": {
       "cordovaDependencies": {
         "3.0.0": {
