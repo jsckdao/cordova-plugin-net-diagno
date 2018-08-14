@@ -20,7 +20,7 @@ window.netdiagno({
     onProgress: (output) => {
         console.log(output)
     },
-    // 完成
+    // 完成
     onFinished: (allOutput) => {
         console.log('网络诊断结束');
     },
